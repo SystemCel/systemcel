@@ -5,10 +5,18 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
-from django.db import models
 
+from django.contrib.auth.models import User
+from django.db import models
+from django.urls import reverse
 
 class Aluno(models.Model):
+    SEXO_CHOICES = [
+        ["F", "Feminino"],
+        ["M", "Masculino"],
+        ["N", "Nenhuma das Opções"]
+    ]
+
     id_aluno = models.AutoField(primary_key=True)
     cpf = models.CharField(unique=True, max_length=11)
     p_nome = models.CharField(max_length=45)
@@ -17,7 +25,7 @@ class Aluno(models.Model):
     numero_rg = models.CharField(max_length=9, blank=True, null=True)
     numero_ra = models.CharField(max_length=14)
     nome_mae = models.CharField(max_length=100)
-    sexo = models.CharField(max_length=1)
+    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
     id_endereco = models.ForeignKey('Endereco', models.DO_NOTHING, db_column='id_endereco', blank=True, null=True)
     id_contato = models.ForeignKey('Contato', models.DO_NOTHING, db_column='id_contato', blank=True, null=True)
     id_eestadual = models.ForeignKey('Eestadual', models.DO_NOTHING, db_column='id_eestadual', blank=True, null=True)
