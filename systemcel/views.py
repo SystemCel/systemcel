@@ -1,18 +1,13 @@
-# from django.shortcuts import render
-# from django.http import HttpResponse
+
+# Importar o TemplateView para criar páginas simples.
 from django.views.generic import TemplateView
+
 # Create your views here.
 
-
 class PaginaInicial(TemplateView):
-    template_name = "systemcel/base.html"
+    template_name = "systemcel/index.html"
 
 
-# def index(request):
-  #  return HttpResponse("Página Inicial do C.E.L 'Prof. Estevam Ferri'")
-
-
-# def cadastrar_aluno(request):
-  #  return render(request, "cadastro.html")
-
+class SobreView(TemplateView):
+  template_name = "systemcel/sobre.html"
 

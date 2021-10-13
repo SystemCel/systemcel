@@ -13,12 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# from django import urls
+
 from django.contrib import admin
+# Adicionar o include para importar urls dos apps...
 from django.urls import include, path
-# from .views import index
+
 
 urlpatterns = [
-    path('', include('systemcel.urls')),
     path('admin/', admin.site.urls),
+    
+    # Importa todas as urls criadas no app systemcel:
+    path('', include('systemcel.urls')),
+    path('', include('cadastros.urls')),
+    
 ]

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ns5-xn5(&q^27xy)nizw4-2v0k-n6^g_otvo96)qj&7n*z5vz_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'systemcel.apps.SystemcelConfig',
+    'cadastros.apps.CadastrosConfig',
     # Aqui, sempre que se cria um app (um site...), adicionamos
     # os dados: 'nomedoapp.apps.NomedoappConfig',
     
