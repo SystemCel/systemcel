@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views import AlunoCreate, ContatoCreate, CursosCreate, EestadualCreate, EnderecoCreate
 
+
 app_name = "cadastros"
 
 urlpatterns = [

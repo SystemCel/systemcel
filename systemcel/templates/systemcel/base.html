@@ -5,13 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     {% block titulo %}
 
-    <title>Modelo Base HTML</title>
+    <title>System CEL Estevam</title>
 
     {% endblock %}
+
+    <link href="{% static 'img/logo_cel.gif' %}" rel="shortcut icon" type="image/x-icon" />
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/systemcel.css' %}">
@@ -19,6 +21,7 @@
 </head>
 
 <body>
+
 
     {% block menu %}
 
@@ -31,6 +34,12 @@
     {% endblock %}
 
     {% block destaque %}
+
+    <div class="center">
+        <img alt= "Logo CEL Estevam" src="{% static 'img/cel_estevam.jpg' %}" width="35%">
+        <img alt= "Logo CEL ONU" src="{% static 'img/cel_onu.jpg' %}" width="60%">
+        <!-- <img alt= "Logo CEL Estadual" src="{% static 'img/cel.jpg' %}">-->
+    </div>
 
     <div class="bg-secondary">
 

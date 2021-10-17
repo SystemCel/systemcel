@@ -25,5 +25,6 @@ urlpatterns = [
     # Importa todas as urls criadas no app systemcel:
     path('', include('systemcel.urls')),
     path('', include('cadastros.urls')),
+    path('', include('usuarios.urls')),
     
 ]

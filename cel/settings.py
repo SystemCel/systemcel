@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
+from django.core.management import templates
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,10 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'systemcel.apps.SystemcelConfig',
     'cadastros.apps.CadastrosConfig',
+    'usuarios.apps.UsuariosConfig',
+    'crispy_forms',
+
     # Aqui, sempre que se cria um app (um site...), adicionamos
     # os dados: 'nomedoapp.apps.NomedoappConfig',
     
 ]
+
+# Crispy_Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,3 +142,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configurações de Autenticação:
+LOGIN_REDIRECT_URL = 'systemcel:inicio'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
