@@ -25,6 +25,8 @@ class AlunoCreate(LoginRequiredMixin, CreateView):
         context = super(AlunoCreate, self).get_context_data(*args, **kwargs)
 
         context['titulo'] = "Cadastro Pessoal de Aluno:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
 
@@ -51,6 +53,8 @@ class ContatoCreate(LoginRequiredMixin, CreateView):
         context = super(ContatoCreate, self).get_context_data(*args, **kwargs)
 
         context['titulo'] = "Cadastro de Contatos:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
 
@@ -77,6 +81,8 @@ class CursosCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
         context = super(CursosCreate, self).get_context_data(*args, **kwargs)
 
         context['titulo'] = "Cadastro de Cursos:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
 
@@ -102,6 +108,8 @@ class EestadualCreate(LoginRequiredMixin, CreateView):
         context = super(EestadualCreate, self).get_context_data(*args, **kwargs)
 
         context['titulo'] = "Cadastro de Escola Estadual:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
 
@@ -127,6 +135,8 @@ class EnderecoCreate(LoginRequiredMixin, CreateView):
         context = super(EnderecoCreate, self).get_context_data(*args, **kwargs)
 
         context['titulo'] = "Cadastro de Endereço do Aluno:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
 
