@@ -1,1 +1,18 @@
 Instalar MSQLWorkbench disponível em https://www.mysql.com/products/workbench/
+Criar Database "
+No diretório onde foi copiado o pacote systemcel, digite:
+py -m venv cel
+cd Scripts
+activate.bat
+py -m pip install --upgrade pip
+py -m pip install asgiref
+py -m pip install Django
+py -m pip install django-braces
+py -m pip install django-cleanup
+py -m pip install django-crispy-forms
+py -m pip install pytz
+py -m pip install six
+py -m pip install sqlparse
+pip install --only-binary :all: mysqlclient
+py manage.py migrate
+py manage.py runserver
