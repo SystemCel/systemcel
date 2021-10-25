@@ -1,9 +1,17 @@
+Baixar o pacote SystemCel, por download ou via GitHub Desktop - A aplocação está no Master
 Instalar MSQLWorkbench disponível em https://www.mysql.com/products/workbench/
-Criar Database "
+No MysQl, criar Database com as seguintes configurações:
+         NAME': 'system_cel',
+        'USER': 'univesp',
+        'PASSWORD': '06975071'"
+
 No diretório onde foi copiado o pacote systemcel, digite:
 py -m venv cel
 cd Scripts
 activate.bat
+cd\
+pip install -r requirements.txt
+ou opcionalmente: os comandos da linha 11 até linha 20
 py -m pip install --upgrade pip
 py -m pip install asgiref
 py -m pip install Django
