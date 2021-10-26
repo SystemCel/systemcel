@@ -7,26 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
+
     {% block titulo %}
 
     <title>System CEL Estevam</title>
 
     {% endblock %}
 
-    <link href="{% static 'img/logo_cel.gif' %}" rel="shortcut icon" type="image/x-icon" />
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/fontawesome.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/systemcel.css' %}">
+
+    <link href="{% static 'css/systemcel.css' %}" rel="stylesheet">
 
     <!-- Importação do Datatables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
 
 </head>
 
 <body class="d-flex flex-column h-100">
-    <main role="main" class="flex-shrink-0">
 
+    <main role="main" class="flex-shrink-0">
 
     {% block menu %}
 
@@ -35,7 +36,7 @@
 
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="{% static 'img/cel_estevam.jpg' %}" height="40" alt="">
+                    <img src="{% static 'img/cel_estevam.jpg' %}" height="100" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,11 +77,11 @@
                                 <span id="username">{{ request.user }}</span>
                             </a>
 
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item text-white" href="#">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                     Alterar senha</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                <a class="dropdown-item text-white" href="{% url 'logout' %}">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     Sair</a>
 
@@ -108,21 +109,19 @@
         </nav>
         {% endblock %}
 
-
-
     {% block destaque %}
 
-    <div class="center">
-        <img alt= "Logo CEL Estevam" src="{% static 'img/cel_estevam.jpg' %}" width="35%">
-        <img alt= "Logo CEL ONU" src="{% static 'img/cel_onu.jpg' %}" width="60%">
+    <div >
+        <img alt= "Logo CEL Estevam" src="{% static 'img/brasao-sp.jpg' %}" width="10%">
+        <!--<img alt= "Logo CEL ONU" src="{% static 'img/cel_onu.jpg' %}" width="60%">-->
         <!-- <img alt= "Logo CEL Estadual" src="{% static 'img/cel.jpg' %}">-->
     </div>
 
-    <div class="bg-secondary">
+    <!--<div class="bg-secondary">
 
         Figuras de Destaque...
 
-    </div>
+    </div>-->
 
     {% endblock %}
 
@@ -149,27 +148,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <h5>O Município</h5>
+                        <h5>Projetos</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
+                            <li><a href="http://www.fccr.sp.gov.br/" class="text-white">Mostras Culturais</a></li>
+                            <li><a href="#" class="text-white">C.E.L. - ONU</a></li>
                             <li><a href="#" class="text-white">Link 3</a></li>
                         </ul>
                     </div>
                     <div class="col-sm">
-                        <h5>Serviços</h5>
+                        <h5>Cursos no C.E.L. Estevam Ferri</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
+                            <li><a href="#" class="text-white">Inglês</a></li>
+                            <li><a href="#" class="text-white">Espanhol</a></li>
+                            <li><a href="#" class="text-white">Alemão</a></li>
+                            <li><a href="#" class="text-white">Italiano</a></li>
+                            <li><a href="#" class="text-white">Francês</a></li>
+                            <li><a href="#" class="text-white">Japonês</a></li>
+                            <li><a href="#" class="text-white">Mandarim</a></li>
+
                         </ul>
                     </div>
                     <div class="col-sm">
                         <h5>Acesso rápido</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
+                             <li><a href="{% url 'systemcel:inicio' %}" class="text-white">Increva-se!</a></li>
+                            <li><a href="https://www.facebook.com/Centroestudodelinguas" class="text-white">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/cel_estevam_ferri/" class="text-white">Instagram</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -182,32 +187,28 @@
         {% block rodape %}
         <div class="container-fluid bg-light text-center p-3">
             <div class="row">
-                <div class="col-md-4 mx-auto text-center">
+                <div class="col-md-12 mx-auto text-center">
                     <img src="{% static 'img/logo_cel.jpg' %}" height="48" class="float-left" alt="">
-                    <img src="{% static 'img/cel_onu.jpg' %}" height="48" class="float-right" alt="">
                     <p>
-                        <span class="lead">C.E.L. "Professor Estevam Ferri"</span><br>
-                        <span>Desenvolvido por Projeto Integrador Univesp - Pq. Tecnológico S.J.C. - Grupo 002 / Rafael H. D. Zottesso</span>
+                        <span class="lead">C.E.L. "Professor Estevam Ferri" - Desenvolvido por Projeto Integrador Univesp - Pq. Tecnológico S.J.C. -
+                            Grupo 002 / Rafael H. D. Zottesso</span>
                     </p>
-                </div>
-                <p>
-                <!-- <div class="col-md text-left">
-                    <img src="{% static 'img/cel_estevam.jpg' %}" height="100" alt="">
-                </div> -->
 
-                </p>
+                </div>
+
             </div>
+
         </div>
             {% endblock %}
 
     </footer>
 
 
-    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+     <script src="{% static 'js/popper.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
+     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
     <!-- Bloco destinado aos scripts para cada página -->
     {% block scripts %}
@@ -216,4 +217,5 @@
 
 
 </body>
+
 </html>

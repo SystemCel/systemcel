@@ -1,5 +1,5 @@
 body {
-    background-color: #0bd0e2;
+    background-color: white;
     
 }
 
@@ -26,7 +26,7 @@ h1 {
 Cores do IFPR
 */
 .bg-ifpr {
-    background-color: #007834;
+    background-color: darkblue;
 }
 
 .text-ifpr {
@@ -94,7 +94,7 @@ Personalização da Barra de menu pra ficar igual do site
 }
 
 .navbar a.nav-link{
-    color: black !important;
+    color: #ffffff !important;
 }
 
 .navbar .nav-item{
