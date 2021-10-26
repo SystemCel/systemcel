@@ -13,8 +13,10 @@
 4-	Baixar o pacote SystemCel, por download ou via GitHub Desktop. A aplicação está no Master
 5-	No diretório onde foi copiado o pacote systemcel, via shell ou CMD (linha de comando),digite:
             py -m venv cel
+            cd cel
             cd Scripts
             activate.bat
+            cd..
             cd..
             pip install -r requirements.txt
 
