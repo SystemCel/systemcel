@@ -15,7 +15,7 @@
             py -m venv cel
             cd Scripts
             activate.bat
-            cd\
+            cd..
             pip install -r requirements.txt
 
 6-	Ou, opcionalmente, caso haja algum erro, rodar o bloco de comandos a seguir:
