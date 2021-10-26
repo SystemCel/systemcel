@@ -8,7 +8,7 @@
            'USER': 'univesp',
            'PASSWORD': '06975071'
            
-       ![Captura de tela 2021-10-25 231715](https://user-images.githubusercontent.com/20569301/138798986-1e861bed-080b-4f41-bd7d-01c4b03bef2e.jpg)
+       
            
 4-	Baixar o pacote SystemCel, por download ou via GitHub Desktop. A aplicação está no Master
 5-	No diretório onde foi copiado o pacote systemcel, via shell ou CMD (linha de comando),digite:
