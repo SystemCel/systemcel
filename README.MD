@@ -59,6 +59,12 @@
 
 7-	py manage.py migrate
 
+           Se erro: 
+           
+           pip uninstall  mysqlclient
+           
+            pip install --only-binary :all: mysqlclient
+
 8-	py manage.py runserver
 
 
