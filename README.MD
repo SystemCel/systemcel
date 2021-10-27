@@ -40,8 +40,11 @@
 
 
 
-![This is an image](https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg)
+
 ![tela1](https://user-images.githubusercontent.com/20569301/138989371-31bbcded-b0ea-4cb5-abb5-45366d9bd329.png)
+
+
+##   tela centralizada.
 <div align="center">
 <img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
 </div>
