@@ -35,5 +35,10 @@
 7-	py manage.py migrate
 8-	py manage.py runserver
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
+</div>
+
+
 ![systemcelinicial](https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg)
 
