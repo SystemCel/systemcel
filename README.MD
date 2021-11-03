@@ -16,6 +16,7 @@
            
                   
 4-	Baixar o pacote SystemCel, por download ou via GitHub Desktop. A aplicação está no Master
+
 5-	No diretório onde foi copiado o pacote systemcel, via shell ou CMD (linha de comando),digite:
 
             py -m venv cel
@@ -76,6 +77,6 @@
 
 
 ##   tela centralizada.
-<div align="center">
-<img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
-</div>
+#<div align="center">
+#<img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
+#</div>
