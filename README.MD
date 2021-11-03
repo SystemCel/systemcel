@@ -77,6 +77,6 @@
 
 
 ##   tela centralizada.
-#<div align="center">
-#<img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
-#</div>
+!-- #<div align="center">
+!-- #<img src="https://user-images.githubusercontent.com/20569301/138988305-ddd7b7bd-48ed-41ab-9a49-e0149eb45d09.jpg" width="700px" />
+!--#</div>
