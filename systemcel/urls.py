@@ -2,7 +2,7 @@
 from django import urls
 # from django.contrib import admin
 from django.urls import path
-from .views import PaginaInicial, SobreView
+from .views import InglesView, PaginaInicial, SobreView
 
 # from . import views
 
@@ -14,5 +14,6 @@ urlpatterns = [
     
     path('', PaginaInicial.as_view(), name='inicio'),
     path('sobre/', SobreView.as_view(), name='sobre'),
+    path('ingles/', InglesView.as_view(), name='ingles'),
     
 ]

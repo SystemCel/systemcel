@@ -90,7 +90,7 @@ Personalização da Barra de menu pra ficar igual do site
 }
 
 .navbar .navbar-brand{
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 .navbar a.nav-link{

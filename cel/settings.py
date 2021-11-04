@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cadastros.apps.CadastrosConfig',
     'usuarios.apps.UsuariosConfig',
     'crispy_forms',
+    'cpf_field'
 
     # Aqui, sempre que se cria um app (um site...), adicionamos
     # os dados: 'nomedoapp.apps.NomedoappConfig',

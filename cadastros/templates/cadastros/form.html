@@ -32,7 +32,7 @@
 
      <hr class="mt-4">
 
-    <button type="submit" class="btn btn-light mt-3">
+    <button type="submit" class="btn btn-primary mt-3">
         {% autoescape off %}
         {{ icone }}
         {% endautoescape %}
@@ -47,5 +47,21 @@
 </div>
 
 </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<script>
+
+    $(document).ready(function (){
+
+
+        $("#id_cpf").mask("00000000000");
+
+    });
+</script>
 
 {% endblock %}

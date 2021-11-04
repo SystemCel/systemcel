@@ -1,6 +1,6 @@
-
 # Importar o TemplateView para criar páginas simples.
 from django.views.generic import TemplateView
+
 
 # Create your views here.
 
@@ -9,5 +9,8 @@ class PaginaInicial(TemplateView):
 
 
 class SobreView(TemplateView):
-  template_name = "systemcel/sobre.html"
+    template_name = "systemcel/sobre.html"
 
+
+class InglesView(TemplateView):
+    template_name = "systemcel/ingles.html"

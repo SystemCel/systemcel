@@ -11,5 +11,3 @@ admin.site.register(Contato)
 admin.site.register(Cursos)
 admin.site.register(Eestadual)
 admin.site.register(Endereco)
-
-

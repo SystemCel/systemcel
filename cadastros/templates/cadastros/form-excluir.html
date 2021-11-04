@@ -1,0 +1,49 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% load crispy_forms_filters %}
+
+{% block titulo %}
+
+    <title>Excluir Cadastro</title>
+
+{% endblock %}
+
+{% block conteudo %}
+     <div class="row">
+     <div class="col-md-4 mx-auto">
+
+<h3>Excluir Cadastro da Base de Dados:</h3>
+
+<p class="lead">
+    Confirme para Excluir Definitivamente seu Cadastro:
+ </p>
+
+ <hr>
+
+ <form action="" method="POST">
+
+     <p>
+         Deseja Realmente Excluir o Cadastro: {{ object }}
+     </p>
+
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+     <hr class="mt-4">
+
+    <button type="submit" class="btn btn-danger mt-3">Excluir!</button>
+
+    <hr class="mt-3">
+
+ </form>
+
+</div>
+
+</div>
+
+{% endblock %}

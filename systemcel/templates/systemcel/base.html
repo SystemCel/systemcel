@@ -34,9 +34,9 @@
  <!-- Bloco com o menu principal -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-115 shadow">
 
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="{% static 'img/cel_estevam.jpg' %}" height="100" alt="">
+                    <img src="{% static 'img/cel_estevam.jpg' %}" height="110" alt="10">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'systemcel:inicio' %}">
-                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
                                 Início
                             </a>
                         </li>
@@ -111,8 +111,8 @@
 
     {% block destaque %}
 
-    <div >
-        <img alt= "Logo CEL Estevam" src="{% static 'img/brasao-sp.jpg' %}" width="10%">
+    <div class="container-fluid">
+        <img alt= "Logo CEL Estevam" src="{% static 'img/brasao-sp.jpg' %}" width="8%">
         <!--<img alt= "Logo CEL ONU" src="{% static 'img/cel_onu.jpg' %}" width="60%">-->
         <!-- <img alt= "Logo CEL Estadual" src="{% static 'img/cel.jpg' %}">-->
     </div>
@@ -158,7 +158,7 @@
                     <div class="col-sm">
                         <h5>Cursos no C.E.L. Estevam Ferri</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Inglês</a></li>
+                            <li><a href="{% url 'systemcel:ingles' %}" class="text-white">Inglês</a></li>
                             <li><a href="#" class="text-white">Espanhol</a></li>
                             <li><a href="#" class="text-white">Alemão</a></li>
                             <li><a href="#" class="text-white">Italiano</a></li>
