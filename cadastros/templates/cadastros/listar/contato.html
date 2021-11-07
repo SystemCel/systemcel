@@ -1,0 +1,48 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Contatos Cadastrados</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Usuário</th>
+            <th>Telefone Aluno</th>
+            <th>Telefone Mãe</th>
+            <th>Telefone Pai</th>
+            <th>Telefone Recado</th>
+            <th>WhatsApp</th>
+            <th>Email</th>
+            <th>Opções:</th>
+        </tr>
+
+        {% for contato in object_list %}
+        <tr>
+            <td>{{ contato.usuario }}</td>
+            <td>{{ contato.tel_aluno }}</td>
+            <td>{{ contato.tel_mae }}</td>
+            <td>{{ contato.tel_pai }}</td>
+            <td>{{ contato.tel_recado }}</td>
+            <td>{{ contato.num_whatsapp }}</td>
+            <td>{{ contato.email }}</td>
+
+            <td>
+                <a href="{% url 'cadastros:editar-contato' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

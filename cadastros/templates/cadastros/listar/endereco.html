@@ -1,0 +1,49 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Endereços Cadastrados</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Usuário</th>
+            <th>Tipo</th>
+            <th>Nome</th>
+            <th>Número</th>
+            <th>CEP</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Opções:</th>
+        </tr>
+
+
+        {% for endereco in object_list %}
+        <tr>
+            <td>{{ endereco.usuario }}</td>
+            <td>{{ endereco.logradouro }}</td>
+            <td>{{ endereco.nome }}</td>
+            <td>{{ endereco.numero }}</td>
+            <td>{{ endereco.cep }}</td>
+            <td>{{ endereco.bairro }}</td>
+            <td>{{ endereco.cidade }}</td>
+
+            <td>
+                <a href="{% url 'cadastros:editar-endereco' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

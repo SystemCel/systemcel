@@ -1,0 +1,49 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Cursos Cadastrados</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+
+            <th>Nome</th>
+            <th>Turma</th>
+            <th>Dia da Semana</th>
+            <th>Horário</th>
+            <th>Opções:</th>
+
+        </tr>
+
+
+        {% for curso in object_list %}
+        <tr>
+
+            <td>{{ curso.nome }}</td>
+            <td>{{ curso.turma }}</td>
+            <td>{{ curso.dia_semana }}</td>
+            <td>{{ curso.horario }}</td>
+
+            <td>
+                <a href="{% url 'cadastros:editar-curso' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+                <a href="{% url 'cadastros:excluir-curso' %}" class="btn btn-danger btn-sm" title="Excluir">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

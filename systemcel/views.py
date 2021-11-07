@@ -14,3 +14,32 @@ class SobreView(TemplateView):
 
 class InglesView(TemplateView):
     template_name = "systemcel/ingles.html"
+
+
+class AlemaoView(TemplateView):
+    template_name = "systemcel/alemao.html"
+
+
+class EspanholView(TemplateView):
+    template_name = "systemcel/espanhol.html"
+
+
+class FrancesView(TemplateView):
+    template_name = "systemcel/frances.html"
+
+
+class GaleriaView(TemplateView):
+    template_name = "systemcel/galeria.html"
+
+
+class ItalianoView(TemplateView):
+    template_name = "systemcel/italiano.html"
+
+
+class JaponesView(TemplateView):
+    template_name = "systemcel/japones.html"
+
+
+class MandarimView(TemplateView):
+    template_name = "systemcel/mandarim.html"
+

@@ -2,7 +2,7 @@ from braces.views import GroupRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
-from .models import Aluno, Contato, Cursos, Eestadual, Endereco
+from .models import Aluno, Contato, Cursos, Eestadual, Endereco, Inscricao
 
 from django.urls import reverse_lazy
 
@@ -144,7 +144,7 @@ class EnderecoCreate(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        # Antes do Super o Objeto não foi criado e nem slavo no banco de dados!
+        # Antes do Super o Objeto não foi criado e nem salvo no banco de dados!
         form.instance.usuario = self.request.user
 
         url = super(EnderecoCreate, self).form_valid(form)
@@ -152,6 +152,35 @@ class EnderecoCreate(LoginRequiredMixin, CreateView):
         # Depois do Super o Objeto está criado!
 
         return url
+
+
+class InscricaoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
+    model = Inscricao
+    fields = ['aluno_cpf', 'curso1', 'dia_semana1', 'horario1',
+              'curso2', 'dia_semana2', 'horario2']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('cadastros:listar-inscricao')
+
+    def get_context_data(self, **kwargs):
+        context = super(InscricaoCreate, self).get_context_data(**kwargs)
+
+        context['titulo'] = "Escolha seus Cursos:"
+        context['botao'] = "Cadastrar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+
+        return context
+
+    def form_valid(self, form):
+        # Antes do Super o Objeto não foi criado e nem salvo no banco de dados!
+        form.instance.usuario = self.request.user
+
+        url = super(InscricaoCreate, self).form_valid(form)
+
+        # Depois do Super o Objeto está criado!
+
+        return url
+
 
 # ############## CLASSES UPDATE ##################
 
@@ -164,11 +193,15 @@ class AlunoUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('systemcel:inicio')
 
-    def get_context_data(self, *args, **kwargs):
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
+    def get_context_data(self, **kwargs):
         context = super(AlunoUpdate, self).get_context_data(**kwargs)
 
         context['titulo'] = "Editar Dados Pessoais do Aluno:"
-        context['botao'] = "Editar"
+        context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
@@ -192,11 +225,15 @@ class ContatoUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('systemcel:inicio')
 
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
     def get_context_data(self, *args, **kwargs):
         context = super(ContatoUpdate, self).get_context_data(**kwargs)
 
         context['titulo'] = "Editar Dados de Contatos do Aluno:"
-        context['botao'] = "Editar"
+        context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
@@ -219,11 +256,15 @@ class EestadualUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('systemcel:inicio')
 
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
     def get_context_data(self, *args, **kwargs):
         context = super(EestadualUpdate, self).get_context_data(**kwargs)
 
         context['titulo'] = "Editar Dados da Escola Atual do Aluno:"
-        context['botao'] = "Editar"
+        context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
@@ -246,11 +287,15 @@ class EnderecoUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('systemcel:inicio')
 
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
     def get_context_data(self, *args, **kwargs):
         context = super(EnderecoUpdate, self).get_context_data(**kwargs)
 
         context['titulo'] = "Editar Endereço do Aluno:"
-        context['botao'] = "Editar"
+        context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
         return context
@@ -266,6 +311,66 @@ class EnderecoUpdate(LoginRequiredMixin, UpdateView):
         return url
 
 
+class CursosUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    group_required = u"admin"
+    model = Cursos
+    fields = ['nome', 'turma', 'dia_semana', 'horario']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('cadastros:cadastrar-cursos')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CursosUpdate, self).get_context_data(**kwargs)
+
+        context['titulo'] = "Atualização de Cursos:"
+        context['botao'] = "Atualizar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+
+        return context
+
+    def form_valid(self, form):
+        # Antes do Super o Objeto não foi criado e nem slavo no banco de dados!
+        form.instance.usuario = self.request.user
+
+        url = super(CursosUpdate, self).form_valid(form)
+
+        # Depois do Super o Objeto está criado!
+
+        return url
+
+
+class InscricaoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Inscricao
+    fields = ['aluno_cpf', 'curso1', 'dia_semana1', 'horario1',
+              'curso2', 'dia_semana2', 'horario2']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('cadastros:listar-inscricao')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
+    def get_context_data(self, **kwargs):
+        context = super(InscricaoUpdate, self).get_context_data(**kwargs)
+
+        context['titulo'] = "Modifique seus Cursos:"
+        context['botao'] = "Editar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+
+        return context
+
+    def form_valid(self, form):
+        # Antes do Super o Objeto não foi criado e nem salvo no banco de dados!
+        form.instance.usuario = self.request.user
+
+        url = super(InscricaoUpdate, self).form_valid(form)
+
+        # Depois do Super o Objeto está criado!
+
+        return url
+
+
 # ############## CLASSES DELETE ##################
 
 
@@ -274,3 +379,53 @@ class AlunoDelete(LoginRequiredMixin, DeleteView):
     model = Aluno
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('systemcel:inicio')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Aluno, usuario=self.request.user)
+        return self.object
+
+
+class CursoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
+    model = Cursos
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('cadastros:listar-cursos')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Cursos, usuario=self.request.user)
+        return self.object
+
+
+# ############## CLASSES LISTVIEW ##################
+
+
+class AlunoList(ListView):
+    model = Aluno
+    template_name = 'cadastros/listar/aluno.html'
+
+
+class ContatoList(ListView):
+    model = Contato
+    template_name = 'cadastros/listar/contato.html'
+
+
+class EnderecoList(ListView):
+    model = Endereco
+    template_name = 'cadastros/listar/endereco.html'
+
+
+class EscolaList(ListView):
+    model = Eestadual
+    template_name = 'cadastros/listar/escola.html'
+
+
+class CursosList(ListView):
+    model = Cursos
+    template_name = 'cadastros/listar/cursos.html'
+
+
+class InscricaoList(ListView):
+    model = Inscricao
+    queryset = Inscricao.objects.all()
+    template_name = 'cadastros/listar/inscricao.html'
+

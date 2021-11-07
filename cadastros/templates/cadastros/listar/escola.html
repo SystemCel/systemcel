@@ -1,0 +1,46 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Escolas Cadastradas</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Usuário</th>
+            <th>Nome da Escola</th>
+            <th>Série</th>
+            <th>Nível Escolar</th>
+            <th>Opções:</th>
+
+        </tr>
+
+
+        {% for escola in object_list %}
+        <tr>
+
+            <td>{{ escola.usuario }}</td>
+            <td>{{ escola.nome }}</td>
+            <td>{{ escola.serie }}</td>
+            <td>{{ escola.nivel }}</td>
+
+            <td>
+                <a href="{% url 'cadastros:editar-escola' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

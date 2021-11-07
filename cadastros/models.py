@@ -39,11 +39,11 @@ class Aluno(models.Model):
 
 class Contato(models.Model):
     # id_contato = models.AutoField(primary_key=False)
-    tel_aluno = models.CharField(max_length=10, blank=True, null=True, verbose_name="Telefone do Aluno")
-    tel_mae = models.CharField(max_length=10, blank=True, null=True, verbose_name="Telefone da Mãe")
-    tel_pai = models.CharField(max_length=10, blank=True, null=True, verbose_name="Telefone do Pai")
-    tel_recado = models.CharField(max_length=10, blank=True, null=True, verbose_name="Telefone Recado")
-    num_whatsapp = models.CharField(max_length=10, blank=True, null=True, verbose_name="Número Whatsapp")
+    tel_aluno = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone do Aluno")
+    tel_mae = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone da Mãe")
+    tel_pai = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone do Pai")
+    tel_recado = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone Recado")
+    num_whatsapp = models.CharField(max_length=11, blank=True, null=True, verbose_name="Número Whatsapp")
     email = models.CharField(max_length=70)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
@@ -119,17 +119,50 @@ class Endereco(models.Model):
 
 
 class Inscricao(models.Model):
+    CURSOS_CHOICES = [
+        ["Alemão", "Alemão"], ["Espanhol", "Espanhol"], ["Francês", "Francês"], ["Inglês", "Inglês"],
+        ["Italiano", "Italiano"], ["Japonês", "Japonês"]
+    ]
+
+    DIASEMANA_CHOICES = [
+        ["Terça e Quinta", "Alemão - Terça e Quinta"], ["Segunda e Quarta", "Espanhol - Segunda e Quarta"],
+        ["Terça e Quinta", "Espanhol - Terça e Quinta"], ["Terça e Quinta", "Francês - Terça e Quinta"],
+        ["Terça e Quinta", "Italiano - Terça e Quinta"], ["Segunda e Quarta", "Inglês - Segunda e Quarta"],
+        ["Terça e Quinta", "Inglês - Terça e Quinta"], ["Segunda e Quarta", "Japonês - Segunda e Quarta"]
+    ]
+    HORARIO_CHOICES = [
+        ["17:10 às 18:50", "Alemão 3ª e 5ª- 17:10 às 18:50"], ["08:00 às 09:40", "Espanhol 2ª e 4ª- 08:00 às 09:40"],
+        ["17:10 às 18:50", "Espanhol 2ª e 4ª- 17:10 às 18:50"], ["19:10 às 20:50", "Espanhol 2ª e 4ª- 19:10 às 20:50"],
+        ["15:30 às 17:10", "Espanhol 3ª e 5ª- 15:30 às 17:10"], ["17:10 às 18:50", "Espanhol 3ª e 5ª- 17:10 às 18:50"],
+        ["08:00 às 09:40", "Francês 3ª e 5ª- 08:00 às 09:40"], ["19:10 às 20:50", "Francês 3ª e 5ª- 19:10 às 20:50"],
+        ["13:30 às 15:10", "Italiano 3ª e 5ª- 13:30 às 15:10"], ["17:10 às 18:50", "Inglês 2ª e 4ª- 17:10 às 18:50"],
+        ["19:10 às 20:50", "Inglês 2ª e 4ª- 19:10 às 20:50"], ["09:40 às 11:20", "Inglês 3ª e 5ª- 09:40 às 11:20"],
+        ["15:30 às 17:10", "Inglês 3ª e 5ª- 15:30 às 17:10"], ["17:10 às 18:50", "Inglês 3ª e 5ª- 17:10 às 18:50"],
+        ["17:10 às 18:50", "Japonês 2ª e 4ª- 17:10 às 18:50"]
+    ]
     # Field name made lowercase.
+    # cursos = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Cursos")
     aluno_cpf = models.CharField(
         db_column='Aluno_cpf', primary_key=True, max_length=11)
-    id_endereco = models.IntegerField()
-    id_contato = models.IntegerField()
-    id_eestadual = models.IntegerField()
-    id_cursos = models.IntegerField()
+    curso1 = models.CharField(max_length=45, verbose_name="Nome do Curso 1", choices=CURSOS_CHOICES)
+    turma1 = models.CharField(max_length=3, null=True, verbose_name="Turma")
+    dia_semana1 = models.CharField(max_length=45, verbose_name="Dia da Semana", choices=DIASEMANA_CHOICES)
+    horario1 = models.CharField(max_length=25, verbose_name="Horário", choices=HORARIO_CHOICES)
+    curso2 = models.CharField(max_length=45, blank=True, null=True, verbose_name="Nome do Curso 2",
+                              choices=CURSOS_CHOICES)
+    turma2 = models.CharField(max_length=3, blank=True, null=True, verbose_name="Turma")
+    dia_semana2 = models.CharField(max_length=45, blank=True, null=True, verbose_name="Dia da Semana",
+                                   choices=DIASEMANA_CHOICES)
+    horario2 = models.CharField(max_length=25, blank=True, null=True, verbose_name="Horário", choices=HORARIO_CHOICES)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    cursos = models.ManyToManyField(Cursos)
+
+    def __str__(self):
+        return "{} -> {} | {} a {}".format(self.curso1, self.turma1, self.dia_semana1, self.horario1,
+                                           self.curso2, self.turma2, self.dia_semana2, self.horario2)
 
     class Meta:
         managed = False
         db_table = 'inscricao'
-        unique_together = (('aluno_cpf', 'id_endereco',
-                            'id_contato', 'id_eestadual', 'id_cursos'),)
+

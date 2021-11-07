@@ -1,0 +1,52 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Alunos Cadastrados</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Data Nasc</th>
+            <th>RG</th>
+            <th>RA</th>
+            <th>Nome da Mãe</th>
+            <th>Sexo</th>
+            <th>Opções:</th>
+        </tr>
+
+        {% for aluno in object_list %}
+        <tr>
+            <td>{{ aluno.cpf }}</td>
+            <td>{{ aluno.p_nome }}</td>
+            <td>{{ aluno.sobrenome }}</td>
+            <td>{{ aluno.dt_nasc }}</td>
+            <td>{{ aluno.numero_rg }}</td>
+            <td>{{ aluno.numero_ra }}</td>
+            <td>{{ aluno.nome_mae }}</td>
+            <td>{{ aluno.sexo }}</td>
+            <td>
+                <a href="{% url 'cadastros:editar-aluno' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+                <a href="{% url 'cadastros:excluir-aluno' %}" class="btn btn-danger btn-sm" title="Excluir">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

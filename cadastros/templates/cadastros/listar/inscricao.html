@@ -1,0 +1,54 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+<h3>Lista de Inscrições</h3>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>CPF Aluno</th>
+            <th>Nome do Curso 1</th>
+            <th>Turma 1</th>
+            <th>Dia da Semana 1</th>
+            <th>Horário 1</th>
+             <th>Nome do Curso 2</th>
+            <th>Turma 2</th>
+            <th>Dia da Semana 2</th>
+            <th>Horário 2</th>
+            <th>Opções:</th>
+
+        </tr>
+
+
+        {% for inscricao in object_list %}
+        <tr>
+            <td>{{ inscricao.aluno_cpf }}</td>
+            <td>{{ inscricao.curso1 }}</td>
+            <td>{{ inscricao.turma1 }}</td>
+            <td>{{ inscricao.dia_semana1 }}</td>
+            <td>{{ inscricao.horario1 }}</td>
+            <td>{{ inscricao.curso2 }}</td>
+            <td>{{ inscricao.turma2 }}</td>
+            <td>{{ inscricao.dia_semana2 }}</td>
+            <td>{{ inscricao.horario2 }}</td>
+
+            <td>
+                <a href="{% url 'cadastros:editar-inscricao' %}" class="btn btn-warning btn-sm" title="Editar">
+                    Editar </a>
+            </td>
+        </tr>
+
+        {% empty %}
+            <tr>
+            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

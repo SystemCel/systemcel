@@ -21,7 +21,7 @@
     <link href="{% static 'css/systemcel.css' %}" rel="stylesheet">
 
     <!-- Importação do Datatables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css"/>
 
 </head>
 
@@ -152,19 +152,19 @@
                         <ul class="list-unstyled">
                             <li><a href="http://www.fccr.sp.gov.br/" class="text-white">Mostras Culturais</a></li>
                             <li><a href="#" class="text-white">C.E.L. - ONU</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
+                            <li><a href="{% url 'systemcel:galeria' %}" class="text-white">Galeria de Imagens</a></li>
                         </ul>
                     </div>
                     <div class="col-sm">
                         <h5>Cursos no C.E.L. Estevam Ferri</h5>
                         <ul class="list-unstyled">
                             <li><a href="{% url 'systemcel:ingles' %}" class="text-white">Inglês</a></li>
-                            <li><a href="#" class="text-white">Espanhol</a></li>
-                            <li><a href="#" class="text-white">Alemão</a></li>
-                            <li><a href="#" class="text-white">Italiano</a></li>
-                            <li><a href="#" class="text-white">Francês</a></li>
-                            <li><a href="#" class="text-white">Japonês</a></li>
-                            <li><a href="#" class="text-white">Mandarim</a></li>
+                            <li><a href="{% url 'systemcel:espanhol' %}" class="text-white">Espanhol</a></li>
+                            <li><a href="{% url 'systemcel:alemao' %}" class="text-white">Alemão</a></li>
+                            <li><a href="{% url 'systemcel:italiano' %}" class="text-white">Italiano</a></li>
+                            <li><a href="{% url 'systemcel:frances' %}" class="text-white">Francês</a></li>
+                            <li><a href="{% url 'systemcel:japones' %}" class="text-white">Japonês</a></li>
+                            <li><a href="{% url 'systemcel:mandarim' %}" class="text-white">Mandarim</a></li>
 
                         </ul>
                     </div>
@@ -208,7 +208,7 @@
      <script src="{% static 'js/popper.min.js' %}"></script>
      <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
 
     <!-- Bloco destinado aos scripts para cada página -->
     {% block scripts %}
