@@ -31,6 +31,7 @@ class Aluno(models.Model):
     class Meta:
         managed = False
         db_table = 'aluno'
+        verbose_name_plural = 'alunos'
 
 
 class Contato(models.Model):
@@ -48,6 +49,7 @@ class Contato(models.Model):
     class Meta:
         managed = False
         db_table = 'contato'
+        verbose_name_plural = 'contatos'
 
 
 class Cursos(models.Model):
@@ -63,6 +65,7 @@ class Cursos(models.Model):
     class Meta:
         managed = False
         db_table = 'cursos'
+        verbose_name_plural = 'cursos'
 
 
 class Eestadual(models.Model):
@@ -83,6 +86,7 @@ class Eestadual(models.Model):
     class Meta:
         managed = False
         db_table = 'eestadual'
+        verbose_name_plural = 'escolas'
 
 
 class Endereco(models.Model):
@@ -104,6 +108,7 @@ class Endereco(models.Model):
     class Meta:
         managed = False
         db_table = 'endereco'
+        verbose_name_plural = 'enderecos'
 
 
 class Inscricao(models.Model):
@@ -150,3 +155,4 @@ class Inscricao(models.Model):
     class Meta:
         managed = False
         db_table = 'inscricao'
+        verbose_name_plural = 'inscricoes'
