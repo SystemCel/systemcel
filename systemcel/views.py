@@ -9,7 +9,7 @@ class PaginaInicial(TemplateView):
 
 
 class SobreView(TemplateView):
-    template_name = "systemcel/ajuda.html"
+    template_name = "systemcel/sobre.html"
 
 
 class InglesView(TemplateView):
