@@ -15,9 +15,7 @@ class Aluno(models.Model):
         ["N", "Nenhuma das Opções"]
     ]
 
-    # id_aluno = models.AutoField(primary_key=False)
     cpf = CPFField(unique=True, verbose_name="CPF (Somente Números):")
-    # cpf = models.CharField(unique=True, max_length=14, verbose_name="Número do CPF")
     p_nome = models.CharField(max_length=45, verbose_name="Primeiro Nome")
     sobrenome = models.CharField(max_length=100)
     dt_nasc = models.DateField(verbose_name="Data de Nascimento")
@@ -26,8 +24,6 @@ class Aluno(models.Model):
     nome_mae = models.CharField(max_length=100, verbose_name="Nome da Mãe")
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
-
-    # usuario = models.OneToOneField(User, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return "{} ({} {})".format(self.cpf, self.p_nome, self.sobrenome)
@@ -38,7 +34,6 @@ class Aluno(models.Model):
 
 
 class Contato(models.Model):
-    # id_contato = models.AutoField(primary_key=False)
     tel_aluno = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone do Aluno")
     tel_mae = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone da Mãe")
     tel_pai = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone do Pai")
@@ -46,8 +41,6 @@ class Contato(models.Model):
     num_whatsapp = models.CharField(max_length=11, blank=True, null=True, verbose_name="Número Whatsapp")
     email = models.CharField(max_length=70)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
-
-    # usuario = models.OneToOneField(User, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return super().__str__()
@@ -78,13 +71,11 @@ class Eestadual(models.Model):
         ["Médio", "Médio"],
         ["EJA", "EJA"]
     ]
-    # id_eestadual = models.AutoField(primary_key=False)
+
     nome = models.CharField(max_length=100, verbose_name="Nome da Escola")
     serie = models.CharField(max_length=2, verbose_name="Série")
     nivel = models.CharField(max_length=15, verbose_name="Nível", choices=NIVEL_CHOICES)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
-
-    # usuario = models.OneToOneField(User, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return super().__str__()
@@ -99,7 +90,6 @@ class Endereco(models.Model):
         ["Alameda", "Alameda"], ["Avenida", "Avenida"], ["Chácara", "Chácara"], ["Estrada", "Estrada"],
         ["Praça", "Praça"], ["Recanto", "Recanto"], ["Rua", "Rua"], ["Sítio", "Sítio"], ["Viela", "Viela"]
     ]
-    # id_endereco = models.AutoField(primary_key=False)
     logradouro = models.CharField(max_length=15, choices=LOGRADOURO_CHOICES)
     nome = models.CharField(max_length=100)
     numero = models.CharField(max_length=10, verbose_name="Número")
@@ -107,8 +97,6 @@ class Endereco(models.Model):
     bairro = models.CharField(max_length=45)
     cidade = models.CharField(max_length=50)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
-
-    # usuario = models.OneToOneField(User, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return super().__str__()
@@ -141,7 +129,6 @@ class Inscricao(models.Model):
         ["17:10 às 18:50", "Japonês 2ª e 4ª- 17:10 às 18:50"]
     ]
     # Field name made lowercase.
-    # cursos = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Cursos")
     aluno_cpf = models.CharField(
         db_column='Aluno_cpf', primary_key=True, max_length=11)
     curso1 = models.CharField(max_length=45, verbose_name="Nome do Curso 1", choices=CURSOS_CHOICES)
@@ -156,8 +143,6 @@ class Inscricao(models.Model):
     horario2 = models.CharField(max_length=25, blank=True, null=True, verbose_name="Horário", choices=HORARIO_CHOICES)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
-    cursos = models.ManyToManyField(Cursos)
-
     def __str__(self):
         return "{} -> {} | {} a {}".format(self.curso1, self.turma1, self.dia_semana1, self.horario1,
                                            self.curso2, self.turma2, self.dia_semana2, self.horario2)
@@ -165,4 +150,3 @@ class Inscricao(models.Model):
     class Meta:
         managed = False
         db_table = 'inscricao'
-
