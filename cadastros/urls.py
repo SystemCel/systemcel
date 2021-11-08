@@ -15,7 +15,7 @@ urlpatterns = [
     path('cadastrar/cursos', CursosCreate.as_view(), name='cadastrar-cursos'),
     path('cadastrar/escola', EestadualCreate.as_view(), name='cadastrar-escola'),
     path('cadastrar/endereco', EnderecoCreate.as_view(), name='cadastrar-endereco'),
-    path('inscrever/', InscricaoCreate.as_view(), name='inscrever'),
+    path('cadastrar/inscricao', InscricaoCreate.as_view(), name='cadastrar-inscricao'),
 
     path('editar/aluno/', AlunoUpdate.as_view(), name='editar-aluno'),
     path('editar/contato/', ContatoUpdate.as_view(), name='editar-contato'),

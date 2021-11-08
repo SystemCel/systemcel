@@ -9,7 +9,7 @@ class PaginaInicial(TemplateView):
 
 
 class SobreView(TemplateView):
-    template_name = "systemcel/sobre.html"
+    template_name = "systemcel/ajuda.html"
 
 
 class InglesView(TemplateView):
@@ -42,4 +42,12 @@ class JaponesView(TemplateView):
 
 class MandarimView(TemplateView):
     template_name = "systemcel/mandarim.html"
+
+
+class InscricaoView(TemplateView):
+    template_name = "systemcel/inscrever.html"
+
+
+class AjudaView(TemplateView):
+    template_name = 'systemcel/ajuda.html'
 

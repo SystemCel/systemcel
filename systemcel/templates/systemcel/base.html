@@ -32,7 +32,7 @@
     {% block menu %}
 
  <!-- Bloco com o menu principal -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-115 shadow">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-90 shadow">
 
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -52,6 +52,13 @@
                             </a>
                         </li>
 
+                         <li class="nav-item">
+                            <a class="nav-link" href="{% url 'systemcel:inscrever' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Inscreva-se!
+                            </a>
+                        </li>
+
 
                         <li class="nav-item ">
                             <a class="nav-link" href="{% url 'systemcel:sobre' %}">
@@ -60,9 +67,41 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'systemcel:ajuda' %}">
                                 <i class="fa fa-question-circle" aria-hidden="true"></i>
                                 Ajuda
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cadastros:listar-aluno' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Meus Dados
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cadastros:listar-endereco' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Endereco
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cadastros:listar-contato' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Contatos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cadastros:listar-escola' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Escola
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cadastros:listar-inscricao' %}">
+                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                                Meus Cursos
                             </a>
                         </li>
                     </ul>
@@ -77,22 +116,14 @@
                                 <span id="username">{{ request.user }}</span>
                             </a>
 
-                                <a class="dropdown-item text-white" href="#">
-                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                    Alterar senha</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-white" href="{% url 'logout' %}">
+                               <div class="dropdown-divider"></div>
+                                <a class="nav-link text-white" href="{% url 'logout' %}">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     Sair</a>
 
                         </li>
                         {% else %}
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'registrar' %}">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                Registrar
-                            </a>
-                        </li>
+
                         <li class="nav-item ">
                             <a class="nav-link" href="{% url 'login' %}">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -164,14 +195,13 @@
                             <li><a href="{% url 'systemcel:italiano' %}" class="text-white">Italiano</a></li>
                             <li><a href="{% url 'systemcel:frances' %}" class="text-white">Francês</a></li>
                             <li><a href="{% url 'systemcel:japones' %}" class="text-white">Japonês</a></li>
-                            <li><a href="{% url 'systemcel:mandarim' %}" class="text-white">Mandarim</a></li>
 
                         </ul>
                     </div>
                     <div class="col-sm">
                         <h5>Acesso rápido</h5>
                         <ul class="list-unstyled">
-                             <li><a href="{% url 'systemcel:inicio' %}" class="text-white">Increva-se!</a></li>
+                             <li><a href="{% url 'systemcel:inscrever' %}" class="text-white">Increva-se!</a></li>
                             <li><a href="https://www.facebook.com/Centroestudodelinguas" class="text-white">Facebook</a></li>
                             <li><a href="https://www.instagram.com/cel_estevam_ferri/" class="text-white">Instagram</a></li>
 
@@ -191,7 +221,7 @@
                     <img src="{% static 'img/logo_cel.jpg' %}" height="48" class="float-left" alt="">
                     <p>
                         <span class="lead">C.E.L. "Professor Estevam Ferri" - Desenvolvido por Projeto Integrador Univesp - Pq. Tecnológico S.J.C. -
-                            Grupo 002 / Rafael H. D. Zottesso</span>
+                            Grupo 002 / Referência: Rafael H. D. Zottesso</span>
                     </p>
 
                 </div>

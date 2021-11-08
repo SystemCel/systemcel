@@ -4,10 +4,10 @@
 
 {% block conteudo %}
 
-<h3>Lista de Inscrições</h3>
+<h3>Lista de Inscrições em Cursos:</h3>
     <hr>
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped font-75">
         <tr>
             <th>CPF Aluno</th>
             <th>Nome do Curso 1</th>
@@ -43,7 +43,7 @@
 
         {% empty %}
             <tr>
-            <td colspan="8">Nenhum Aluno Cadastrado!</td>
+            <td colspan="8">Nenhum Curso Inscrito!</td>
             </tr>
 
         {% endfor %}

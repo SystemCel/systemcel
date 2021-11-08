@@ -105,7 +105,7 @@ class EestadualCreate(LoginRequiredMixin, CreateView):
     model = Eestadual
     fields = ['nome', 'serie', 'nivel']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('systemcel:inicio')
+    success_url = reverse_lazy('cadastros:editar-inscricao')
 
     def get_context_data(self, *args, **kwargs):
         context = super(EestadualCreate, self).get_context_data(**kwargs)
@@ -399,33 +399,53 @@ class CursoDelete(LoginRequiredMixin, DeleteView):
 # ############## CLASSES LISTVIEW ##################
 
 
-class AlunoList(ListView):
+class AlunoList(LoginRequiredMixin, ListView):
     model = Aluno
     template_name = 'cadastros/listar/aluno.html'
 
+    def get_queryset(self):
+        self.object_list = Aluno.objects.filter(usuario=self.request.user)
+        return self.object_list
 
-class ContatoList(ListView):
+
+class ContatoList(LoginRequiredMixin, ListView):
     model = Contato
     template_name = 'cadastros/listar/contato.html'
 
+    def get_queryset(self):
+        self.object_list = Contato.objects.filter(usuario=self.request.user)
+        return self.object_list
 
-class EnderecoList(ListView):
+
+class EnderecoList(LoginRequiredMixin, ListView):
     model = Endereco
     template_name = 'cadastros/listar/endereco.html'
 
+    def get_queryset(self):
+        self.object_list = Endereco.objects.filter(usuario=self.request.user)
+        return self.object_list
 
-class EscolaList(ListView):
+
+class EscolaList(LoginRequiredMixin, ListView):
     model = Eestadual
     template_name = 'cadastros/listar/escola.html'
 
+    def get_queryset(self):
+        self.object_list = Eestadual.objects.filter(usuario=self.request.user)
+        return self.object_list
 
-class CursosList(ListView):
+
+class CursosList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+    group_required = u"admin"
     model = Cursos
     template_name = 'cadastros/listar/cursos.html'
 
 
-class InscricaoList(ListView):
+class InscricaoList(LoginRequiredMixin, ListView):
     model = Inscricao
-    queryset = Inscricao.objects.all()
     template_name = 'cadastros/listar/inscricao.html'
+
+    def get_queryset(self):
+        self.object_list = Inscricao.objects.filter(usuario=self.request.user)
+        return self.object_list
 

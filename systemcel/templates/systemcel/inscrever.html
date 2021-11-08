@@ -1,0 +1,67 @@
+{% extends 'systemcel/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" type="image/x-icon"/>
+    <title>System CEL Estevam</title>
+{% endblock %}
+
+
+{% block conteudo %}
+<div class="container">
+
+    <h1>Bem Vindos ao C.E.L. "Professor Estevam Ferri"</h1>
+    <p>Esta é a página de Pré-Inscrição para nossos cursos de línguas.</p>
+    <h3 class="text-danger">AVISOS!!!</h3>
+    <p class="lead">Para alunos menores de idade, a inscrição deverá ser feita sob acompanhamento de um responsável!</p>
+    <p class="lead">O aluno deverá estar matriculado na rede pública estadual de ensino no momento da
+        finalização da matrícula!</p>
+    <h3 class="text-primary">Responda para prosseguir:</h3>
+
+
+    <div class="container">
+
+<h3>Você é aluno da Rede Estadual de Ensino?</h3>
+
+<br>
+
+        <div class="row">
+    <div class="col-3">
+<div class="radio">
+
+  <label>
+
+    <input type="radio" name="survey" id="Radios1" value="Sim" checked>
+
+  Sim!
+
+  </label>
+
+</div>
+
+<div class="radio">
+
+  <label>
+
+    <input type="radio" name="survey" id="Radios2" value="Serei">
+
+    Serei!
+
+  </label>
+    </div>
+</div>
+
+            <div class="col-6">
+                <a href="{% url 'registrar' %}" class="btn-primary active btn-lg">Prosseguir-></a>
+            </div>
+
+    </div>
+</div>
+
+</div>
+
+
+{% endblock %}
