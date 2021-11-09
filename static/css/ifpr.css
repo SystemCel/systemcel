@@ -1,5 +1,4 @@
-
-/* 
+/*
 Cores do IFPR 
 */
 .bg-ifpr {
@@ -82,7 +81,6 @@ Personalização da Barra de menu pra ficar igual do site
     background-color: #315C23;
 }
 
-
 /* 
 Alerta na validação dos formulários (login com senha errada, por exemplo) 
 */
@@ -90,7 +88,6 @@ Alerta na validação dos formulários (login com senha errada, por exemplo)
     margin-top: 0;
     margin-bottom: 0;
 }
-
 
 /*
 Largura máxima das tabelas para não ficar mal formatada
