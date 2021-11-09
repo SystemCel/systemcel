@@ -4,7 +4,7 @@ from django import urls
 from django.urls import path
 from .views import InglesView, PaginaInicial, SobreView, GaleriaView, InscricaoView
 from .views import AlemaoView, EspanholView, FrancesView, ItalianoView
-from .views import JaponesView, MandarimView
+from .views import JaponesView, MandarimView, AjudaView
 
 # from . import views
 
@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('', PaginaInicial.as_view(), name='inicio'),
     path('sobre/', SobreView.as_view(), name='sobre'),
-    path('ajuda/', SobreView.as_view(), name='ajuda'),
+    path('ajuda/', AjudaView.as_view(), name='ajuda'),
     path('ingles/', InglesView.as_view(), name='ingles'),
     path('italiano/', ItalianoView.as_view(), name='italiano'),
     path('alemao/', AlemaoView.as_view(), name='alemao'),
