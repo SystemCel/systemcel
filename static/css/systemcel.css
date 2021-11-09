@@ -94,11 +94,6 @@ Personalização da Barra de menu pra ficar igual do site
 
 .navbar a.nav-link{
     color: #ffffff !important;
-    position:absolute;
-    top:25px;
-    left:0;
-    background-color:#fff;
-    display:none;
 }
 
 .navbar .nav-item{
