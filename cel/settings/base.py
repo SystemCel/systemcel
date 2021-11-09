@@ -152,7 +152,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Configurações de Autenticação:
-LOGIN_REDIRECT_URL = 'systemcel:inicio'
+
+LOGIN_REDIRECT_URL = 'cadastros:listar-aluno'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 

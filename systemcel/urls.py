@@ -2,6 +2,8 @@
 from django import urls
 # from django.contrib import admin
 from django.urls import path
+
+from cadastros.views import AlunoList
 from .views import InglesView, PaginaInicial, SobreView, GaleriaView, InscricaoView
 from .views import AlemaoView, EspanholView, FrancesView, ItalianoView
 from .views import JaponesView, MandarimView, AjudaView
@@ -26,5 +28,6 @@ urlpatterns = [
     path('mandarim/', MandarimView.as_view(), name='mandarim'),
     path('galeria/', GaleriaView.as_view(), name='galeria'),
     path('inscrever/', InscricaoView.as_view(), name='inscrever'),
+    path('listar/aluno/', AlunoList.as_view(), name='listar-aluno'),
 
 ]

@@ -5,20 +5,21 @@
 {% load crispy_forms_tags %}
 
 {% block titulo %}
-<title>Sobre o C.E.L.</title>
+<title>Galeria de Imagens</title>
 {% endblock %}
 
 {% block conteudo %}
 
-
-<h3>Sobre o C.E.L. "Professor Estevam Ferri"</h3>
+<h3>C.E.L. "Professor Estevam Ferri"</h3>
 
 <p>Esta página vai conter as imagens do CEL. Seguem apenas alguns exemplos...</p>
 
-<!doctype html>
-<html>
-<body>
-<img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1634519275989.jpg?csf=1&web=1&e=mJdMVV" alt="some text" width=300 height=200>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col">
+            <img src="{% static 'img/1634519275989.jpg' %}" alt="Foto" class="img-fluid">
+        </div>
+
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1634519406232.jpg?csf=1&web=1&e=REnVhb" alt="some text" width=300 height=200>
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1634519487258.jpg?csf=1&web=1&e=dcb2mJ" alt="some text" width=300 height=200>
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1634519487485.jpg?csf=1&web=1&e=uc4WRs" alt="some text" width=300 height=200>
@@ -27,8 +28,10 @@
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1634519759142.jpg?csf=1&web=1&e=BlLRB4" alt="some text" width=300 height=200>
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1635353782540.jpg?csf=1&web=1&e=y93fdU" alt="some text" width=300 height=200>
 <img src="https://alunounivespbr-my.sharepoint.com/:i:/r/personal/2008696_aluno_univesp_br/Documents/Arquivos%20CEL%20-%20Instagram/1635353782614.jpg?csf=1&web=1&e=7alCKy" alt="some text" width=300 height=200>
-</body>
-</html>
-<p> </p>
+
+        </div>
+        </div>
+    </div>
+
 {% endblock %}
 

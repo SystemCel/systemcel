@@ -42,6 +42,9 @@
         {% empty %}
             <tr>
             <td colspan="8">Nenhum Dado deste Aluno Cadastrado!</td>
+            <td colspan="8">Clique aqui para iniciar seu cadastro! <a href="{% url 'cadastros:cadastrar-aluno' %}"
+                class="btn btn-warning btn-sm" title="Cadastrar">
+                    Cadastrar </a></td>
             </tr>
 
         {% endfor %}

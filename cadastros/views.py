@@ -105,7 +105,7 @@ class EestadualCreate(LoginRequiredMixin, CreateView):
     model = Eestadual
     fields = ['nome', 'serie', 'nivel']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('cadastros:editar-inscricao')
+    success_url = reverse_lazy('cadastros:cadastrar-inscricao')
 
     def get_context_data(self, *args, **kwargs):
         context = super(EestadualCreate, self).get_context_data(**kwargs)
